@@ -1,0 +1,17 @@
+[package]
+name = "gaussian-crypto"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+num-bigint = "0.4"
+num-traits = "0.2"
+k256 = { version = "0.13.4", features = ["arithmetic", "expose-field", "ecdsa"] }
+secp256k1 = { version = "0.31.1", features = ["global-context", "rand", "hashes"] }
+sha2 = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
